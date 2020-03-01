@@ -169,7 +169,7 @@ const CreatePost = () => {
                     value={title}
                     onFocus={handleOnFocus}
                     onChange={handleTitleChange}
-                    placeholder="Add a post"
+                    placeholder="Add a report or a recommendation"
                   />
 
                   {!isFocused && (
@@ -188,7 +188,7 @@ const CreatePost = () => {
                 {isFocused && (
                   <Options>
                     <PostImageUpload
-                      label="Photo"
+                      label="Upload Report"
                       handleChange={handlePostImageUpload}
                     />
 

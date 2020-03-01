@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Spacing } from 'components/Layout';
-import { UploadImageIcon } from 'components/icons';
+// import { UploadImageIcon } from 'components/icons';
+import { UploadIcon } from 'components/icons';
 
 const Input = styled.input`
   display: none;
@@ -40,7 +41,7 @@ const PostImageUpload = ({ handleChange, label }) => (
     />
 
     <Label htmlFor="post-image">
-      <UploadImageIcon />
+      <UploadIcon />
 
       {label && <Spacing left="xs">{label}</Spacing>}
     </Label>

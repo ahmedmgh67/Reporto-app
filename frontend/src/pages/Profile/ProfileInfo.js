@@ -136,7 +136,7 @@ const ProfileInfo = ({ user }) => {
 
       <Info>
         <List>
-          <b>{user.posts.length} </b> posts
+          <b>{user.posts.length} </b> reports and recommendations
         </List>
         <List>
           <b>{user.followers.length} </b> followers

@@ -3,6 +3,7 @@ export { PostUserIcon } from './PostUserIcon';
 export { DeleteIcon } from './DeleteIcon';
 export { CloseIcon } from './CloseIcon';
 export { UploadImageIcon } from './UploadImageIcon';
+export { UploadIcon } from './UploadIcon';
 export { LikeIcon } from './LikeIcon';
 export { PostCommentIcon } from './PostCommentIcon';
 export { ExploreIcon } from './ExploreIcon';
