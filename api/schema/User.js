@@ -17,6 +17,7 @@ const UserSchema = gql`
     resetTokenExpiry: String
     image: File
     imagePublicId: String
+    bio: String
     coverImage: File
     coverImagePublicId: String
     isOnline: Boolean
@@ -88,6 +89,7 @@ const UserSchema = gql`
     image: String
     imagePublicId: String
     coverImage: String
+    bio: String
     coverImagePublicId: String
     isOnline: Boolean
     posts: [PostPayload]

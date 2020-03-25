@@ -99,7 +99,7 @@ const ProfileInfo = ({ user }) => {
   if (!loading && data) {
     isUserOnline = data.isUserOnline.isOnline;
   }
-
+console.log(user)
   return (
     <Root>
       <ProfileCoverUpload
@@ -133,6 +133,7 @@ const ProfileInfo = ({ user }) => {
           )}
         </FullName>
       </ProfileImage>
+          <p>{user.bio}</p>
 
       <Info>
         <List>
