@@ -28,6 +28,7 @@ export const GET_USER = gql`
     getUser(username: $username, id: $id) {
       ${userPayload}
       isOnline
+      bio
       posts {
         id
       }

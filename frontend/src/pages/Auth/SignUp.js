@@ -6,7 +6,7 @@ import { Mutation } from 'react-apollo';
 
 import { Spacing, Container } from 'components/Layout';
 import { H1, Error } from 'components/Text';
-import { InputText, Button } from 'components/Form';
+import { InputText, Button, DropDown } from 'components/Form';
 import Head from 'components/Head';
 
 import { SIGN_UP } from 'graphql/user';
@@ -62,11 +62,13 @@ const SignUp = ({ history, refetch }) => {
     username: '',
     email: '',
     password: '',
+    type: 'Normal user'
   });
 
   const handleChange = e => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
+    console.log(values)
   };
 
   const validate = () => {
@@ -133,12 +135,12 @@ const SignUp = ({ history, refetch }) => {
     return null;
   };
 
-  const { fullName, email, password, username } = values;
+  const { fullName, email, password, username, type } = values;
 
   return (
     <Mutation
       mutation={SIGN_UP}
-      variables={{ input: { fullName, email, password, username } }}
+      variables={{ input: { fullName, email, password, username, type} }}
     >
       {(signup, { loading, error: apiError }) => {
         return (
@@ -189,6 +191,12 @@ const SignUp = ({ history, refetch }) => {
                   placeholder="Username"
                   borderColor="white"
                 />
+                <Spacing top="xs" bottom="xs">
+                  <DropDown name="type" onChange={handleChange}>
+                    <option>Normal user</option>
+                    <option>Analyst</option>
+                  </DropDown>
+                </Spacing>
                 <Spacing top="xs" bottom="xs">
                   <InputText
                     type="password"

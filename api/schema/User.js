@@ -18,6 +18,7 @@ const UserSchema = gql`
     image: File
     imagePublicId: String
     bio: String
+    type: String
     coverImage: File
     coverImagePublicId: String
     isOnline: Boolean
@@ -58,6 +59,7 @@ const UserSchema = gql`
     username: String!
     fullName: String!
     password: String!
+    type: String!
   }
 
   input RequestPasswordResetInput {
@@ -76,7 +78,7 @@ const UserSchema = gql`
     imagePublicId: String
     isCover: Boolean
   }
-
+  
   # ---------------------------------------------------------
   # Return Payloads
   # ---------------------------------------------------------
@@ -90,6 +92,7 @@ const UserSchema = gql`
     imagePublicId: String
     coverImage: String
     bio: String
+    type: String
     coverImagePublicId: String
     isOnline: Boolean
     posts: [PostPayload]

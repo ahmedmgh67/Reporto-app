@@ -33,6 +33,7 @@ const userSchema = new Schema(
       required: true,
     },
     bio: String,
+    type: String,
     image: String,
     imagePublicId: String,
     coverImage: String,
