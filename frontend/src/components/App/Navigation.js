@@ -67,14 +67,14 @@ const Navigation = () => {
       <Link exact activeClassName="selected" to={Routes.EXPLORE}>
         <ListItem>
           <ExploreIcon width={20} />
-          <Name>Explore</Name>
+          <Name>Explore Reports</Name>
         </ListItem>
       </Link>
 
       <Link exact activeClassName="selected" to={Routes.PEOPLE}>
         <ListItem>
           <PeopleIcon />
-          <Name>People</Name>
+          <Name>Explore People</Name>
         </ListItem>
       </Link>
 

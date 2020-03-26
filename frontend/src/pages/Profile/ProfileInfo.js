@@ -133,7 +133,7 @@ const ProfileInfo = ({ user }) => {
         </FullName>
       </ProfileImage>
       <br />
-      <H3>{user.bio}</H3>
+      <H3>{user.bio == null ? "No bio" : user.bio}</H3>
       <Info>
         <List>
           <b>{user.posts.length} </b> reports and recommendations

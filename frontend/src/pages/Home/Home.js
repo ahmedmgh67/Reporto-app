@@ -89,7 +89,7 @@ const Home = () => {
             return (
               <Empty>
                 <StyledA to={generatePath(Routes.EXPLORE)}>
-                  Explore new posts
+                  Explore new reports
                 </StyledA>{' '}
                 or{' '}
                 <StyledA to={generatePath(Routes.PEOPLE)}>

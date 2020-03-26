@@ -29,6 +29,7 @@ export const GET_USER = gql`
       ${userPayload}
       isOnline
       bio
+      type
       posts {
         id
       }

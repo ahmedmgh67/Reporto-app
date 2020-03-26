@@ -96,7 +96,7 @@ const Follow = ({ user }) => {
             disabled={loading}
             isFollowing={isFollowing}
           >
-            {isFollowing ? 'Following' : 'Follow'}
+            {isFollowing ? user.type === "Analyst"? 'Following' : "Connected" : user.type === "Analyst"? 'Follow': "Connect"}
           </Button>
         );
       }}
