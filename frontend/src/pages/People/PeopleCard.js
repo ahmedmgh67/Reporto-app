@@ -49,7 +49,8 @@ const InitialLetters = styled.div`
   background-color: ${p => p.color};
 `;
 
-const FullName = styled.span`
+const FullName = styled.strong` 
+  text-align: center;
   max-width: 200px;
   font-weight: ${p => p.theme.font.weight.bold};
 `;
@@ -103,7 +104,7 @@ const PeopleCard = ({ user }) => {
 
       <Spacing top="sm" bottom="xs">
         <A to={generatePath(Routes.USER_PROFILE, { username })}>
-          <FullName>{fullName}</FullName>
+          <FullName style={{textAlign: "center"}}>{fullName}</FullName>
         </A>
       </Spacing>
 

@@ -82,7 +82,7 @@ const Explore = () => {
 
           const { posts, count } = data.getPosts;
 
-          if (!posts.length > 0) return <Empty text="No posts yet." />;
+          if (!posts.length > 0) return <Empty text="No Reports yet." />;
 
           return (
             <InfiniteScroll

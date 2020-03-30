@@ -66,6 +66,13 @@ const Image = styled.img`
   width: ${p => !p.usedInModal && '100%'};
   max-height: ${p => (p.usedInModal ? '600px' : '100%')};
 `;
+const Embed = styled.embed`
+  display: block;
+  max-width: 100%;
+  width: ${p => !p.usedInModal && '100%'};
+  height: 100%
+  // maax-height: ${p => (p.usedInModal ? '600px' : '100%')};
+`;
 
 const Right = styled.div`
   display: flex;
@@ -122,7 +129,8 @@ const PostPopup = ({ id, closeModal, usedInModal }) => {
 
             <Container usedInModal={usedInModal}>
               <Left usedInModal={usedInModal}>
-                <Image src={post.image} usedInModal={usedInModal} />
+                <Embed src={post.image} type="application/pdf"/>
+                {/* <Image src={post.image} usedInModal={usedInModal} /> */}
               </Left>
 
               <Right usedInModal={usedInModal}>

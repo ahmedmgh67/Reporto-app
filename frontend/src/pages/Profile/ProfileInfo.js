@@ -99,7 +99,7 @@ const ProfileInfo = ({ user }) => {
   if (!loading && data) {
     isUserOnline = data.isUserOnline.isOnline;
   }
-  console.log(user);
+  // console.log(user);
   return (
     <Root>
       <ProfileCoverUpload

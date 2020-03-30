@@ -10,7 +10,7 @@ const Query = {
    */
   getPosts: async (root, { authUserId, skip, limit }, { Post }) => {
     const query = {
-      $and: [{ image: { $ne: null } }, { author: { $ne: authUserId } }],
+      $and: [{ type: "Report"}, { author: { $ne: authUserId } }],
     };
     const postsCount = await Post.find(query).countDocuments();
     const allPosts = await Post.find(query)
@@ -134,7 +134,7 @@ const Mutation = {
    */
   createPost: async (
     root,
-    { input: { title, image, authorId } },
+    { input: { title, image, authorId , type} },
     { Post, User }
   ) => {
     if (!title && !image) {
@@ -160,6 +160,7 @@ const Mutation = {
     const newPost = await new Post({
       title,
       image: imageUrl,
+      type,
       imagePublicId,
       author: authorId,
     }).save();

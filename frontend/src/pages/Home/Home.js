@@ -1,26 +1,27 @@
-import React, { useState, Fragment } from 'react';
-import styled from 'styled-components';
-import { generatePath } from 'react-router-dom';
-import { Query } from 'react-apollo';
+import React, { useState, Fragment } from "react";
+import styled from "styled-components";
+import { generatePath } from "react-router-dom";
+import { Query } from "react-apollo";
 
-import { A } from 'components/Text';
-import PostPopup from 'components/PostPopup';
-import Modal from 'components/Modal';
-import PostCard from 'components/PostCard';
-import { Spacing, Container } from 'components/Layout';
-import { Loading } from 'components/Loading';
-import InfiniteScroll from 'components/InfiniteScroll';
-import Skeleton from 'components/Skeleton';
-import CreatePost from 'components/CreatePost';
-import Head from 'components/Head';
+import { A } from "components/Text";
+import PostPopup from "components/PostPopup";
+import Modal from "components/Modal";
+import PostCard from "components/PostCard";
+import { Spacing, Container } from "components/Layout";
+import { Loading } from "components/Loading";
+import InfiniteScroll from "components/InfiniteScroll";
+import Skeleton from "components/Skeleton";
+import CreatePost from "components/CreatePost";
+import Head from "components/Head";
 
-import { GET_FOLLOWED_POSTS } from 'graphql/post';
+import { GET_FOLLOWED_POSTS } from "graphql/post";
 
-import { useStore } from 'store';
+import { useStore } from "store";
 
-import { HOME_PAGE_POSTS_LIMIT } from 'constants/DataLimit';
+import { HOME_PAGE_POSTS_LIMIT } from "constants/DataLimit";
 
-import * as Routes from 'routes';
+import * as Routes from "routes";
+import { GET_USER } from "graphql/user";
 
 const Empty = styled.div`
   padding: ${p => p.theme.spacing.sm};
@@ -43,28 +44,44 @@ const Home = () => {
   const [modalPostId, setModalPostId] = useState(null);
 
   const closeModal = () => {
-    window.history.pushState('', '', '/');
+    window.history.pushState("", "", "/");
     setModalPostId(null);
   };
 
   const openModal = postId => {
-    window.history.pushState('', '', generatePath(Routes.POST, { id: postId }));
+    window.history.pushState("", "", generatePath(Routes.POST, { id: postId }));
     setModalPostId(postId);
   };
 
   const variables = {
     userId: auth.user.id,
     skip: 0,
-    limit: HOME_PAGE_POSTS_LIMIT,
+    limit: HOME_PAGE_POSTS_LIMIT
   };
-
+  const id = variables.userId;
+  // console.log(id)
   return (
     <Container maxWidth="sm">
       <Head />
 
       <Spacing top="lg" />
-
-      <CreatePost />
+      <Query query={GET_USER} variables={{ id }} notifyOnNetworkStatusChange>
+        {({ data, loading, networkStatus }) => {
+          if (loading && networkStatus === 1) {
+            return (
+              <Skeleton
+                height={70}
+                bottom="lg"
+                top="lg"
+                count={HOME_PAGE_POSTS_LIMIT}
+              />
+            );
+          } else {
+            // console.log(data);
+            return <CreatePost data={data} />;
+          }
+        }}
+      </Query>
 
       <Query
         query={GET_FOLLOWED_POSTS}
@@ -90,15 +107,15 @@ const Home = () => {
               <Empty>
                 <StyledA to={generatePath(Routes.EXPLORE)}>
                   Explore new reports
-                </StyledA>{' '}
-                or{' '}
+                </StyledA>{" "}
+                or{" "}
                 <StyledA to={generatePath(Routes.PEOPLE)}>
                   Find new people
                 </StyledA>
               </Empty>
             );
           }
-
+          console.log(data)
           return (
             <InfiniteScroll
               data={posts}
@@ -130,6 +147,7 @@ const Home = () => {
                             comments={post.comments}
                             createdAt={post.createdAt}
                             title={post.title}
+                            type={post.type}
                             image={post.image}
                             likes={post.likes}
                             openModal={() => openModal(post.id)}

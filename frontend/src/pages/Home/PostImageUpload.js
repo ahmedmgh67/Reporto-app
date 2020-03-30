@@ -37,7 +37,8 @@ const PostImageUpload = ({ handleChange, label }) => (
       onChange={handleChange}
       type="file"
       id="post-image"
-      accept="image/x-png,image/jpeg"
+      accept=".pdf"
+      aaccept="image/x-png,image/jpeg"
     />
 
     <Label htmlFor="post-image">

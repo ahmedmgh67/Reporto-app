@@ -352,7 +352,7 @@ const Mutation = {
    */
   signup: async (
     root,
-    { input: { fullName, email, username, password } },
+    { input: { fullName, email, username, password, type } },
     { User }
   ) => {
     // Check if user with given email or username already exists
@@ -415,6 +415,7 @@ const Mutation = {
       fullName,
       email,
       username,
+      type,
       password,
     }).save();
 

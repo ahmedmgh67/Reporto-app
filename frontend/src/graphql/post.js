@@ -85,6 +85,7 @@ export const GET_FOLLOWED_POSTS = gql`
         id
         title
         image
+        type
         imagePublicId
         createdAt
         ${postAuthorPayload}
@@ -104,6 +105,7 @@ export const GET_POSTS = gql`
       count
       posts {
         id
+        type
         title
         image
         ${postAuthorPayload}
@@ -123,6 +125,7 @@ export const GET_POST = gql`
       id
       title
       image
+      type
       createdAt
       ${postAuthorPayload}
       ${postCommentsPayload}

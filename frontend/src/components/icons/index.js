@@ -4,6 +4,7 @@ export { DeleteIcon } from './DeleteIcon';
 export { CloseIcon } from './CloseIcon';
 export { UploadImageIcon } from './UploadImageIcon';
 export { UploadIcon } from './UploadIcon';
+export { BigUploadIcon } from './BigUploadIcon';
 export { LikeIcon } from './LikeIcon';
 export { PostCommentIcon } from './PostCommentIcon';
 export { ExploreIcon } from './ExploreIcon';

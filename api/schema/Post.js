@@ -11,6 +11,7 @@ const PostSchema = gql`
     id: ID!
     title: String
     image: File
+    type: String
     imagePublicId: String
     author: User!
     likes: [Like]
@@ -25,6 +26,7 @@ const PostSchema = gql`
   input CreatePostInput {
     title: String
     image: Upload
+    type: String
     imagePublicId: String
     authorId: ID!
   }
@@ -46,6 +48,7 @@ const PostSchema = gql`
     id: ID!
     title: String
     image: String
+    type: String
     imagePublicId: String
     author: UserPayload!
     likes: [Like]

@@ -66,7 +66,21 @@ const Name = styled.span`
   color: ${p => p.theme.colors.primary.main};
 `;
 
+const Type = styled.span`
+  font-size: ${p => p.theme.font.size.xxs};
+  font-weight: ${p => p.theme.font.weight.bold};
+  color: ${p => p.theme.colors.primary.hint};
+`;
+
 const Poster = styled.img`
+  display: block;
+  width: 100%;
+  max-height: 700px;
+  object-fit: cover;
+  cursor: pointer;
+  margin-bottom: ${p => p.theme.spacing.sm};
+`;
+const PosterEmbed = styled.embed`
   display: block;
   width: 100%;
   max-height: 700px;
@@ -124,6 +138,7 @@ const PostCard = ({
   imagePublicId,
   comments,
   title,
+  type,
   createdAt,
   image,
   likes,
@@ -203,6 +218,7 @@ const PostCard = ({
             </Spacing>
           </Author>
 
+              <Type>{type}</Type>
           <Button ghost onClick={openOption}>
             <DotsIcon />
           </Button>
@@ -212,9 +228,10 @@ const PostCard = ({
           <H3>{title}</H3>
         </Spacing>
 
-        {image && <Poster src={image} onClick={openModal} />}
+        {/* {image && <Poster src={image} onClick={openModal} />} */}
 
         <BottomRow>
+        {image &&  <Button text onClick={openModal}>Click to view report</Button>}
           <CountAndIcons>
             <Count>
               {likes.length} likes

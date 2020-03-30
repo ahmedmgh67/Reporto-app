@@ -41,6 +41,14 @@ const Photo = styled.div`
   background-position: center;
   background-color: ${p => p.theme.colors.grey[300]};
 `;
+const Embed = styled.embed`
+  width: 100%;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: ${p => p.theme.colors.grey[300]};
+`;
 
 /**
  * Card component, meant to be used in Explore page
@@ -63,8 +71,8 @@ const ExploreCard = ({ openPostPopup, image, countLikes, countComments }) => {
 
   return (
     <Root>
-      <Photo style={imageLoaded ? { backgroundImage: `url(${image})` } : {}} />
-
+      {/* <Photo style={imageLoaded ? { backgroundImage: `url(${image})` } : {}} /> */}
+<Embed src={image} />
       <Overlay onClick={openPostPopup}>
         <LikeIcon color="white" />
 

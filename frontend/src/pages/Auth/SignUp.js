@@ -68,7 +68,7 @@ const SignUp = ({ history, refetch }) => {
   const handleChange = e => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-    console.log(values)
+    // console.log(values)
   };
 
   const validate = () => {
