@@ -136,7 +136,7 @@ const CreatePost = ({ data }) => {
   const handleReportTypeChange = e => {
     const { name, value } = e.target;
     console.log(value);
-    setType(value);
+    setReportType(value);
   };
 
   const handleOnFocus = () => setIsFocused(true);
