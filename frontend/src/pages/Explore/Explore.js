@@ -110,6 +110,7 @@ const Explore = () => {
 
                           <ExploreCard
                             image={post.image}
+                            title={post.title}
                             countLikes={post.likes.length}
                             countComments={post.comments.length}
                             openPostPopup={() => openModal(post.id)}

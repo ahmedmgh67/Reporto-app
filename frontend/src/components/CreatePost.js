@@ -126,12 +126,12 @@ const CreatePost = ({ data }) => {
   const handleIndustryChange = e => {
     const { name, value } = e.target;
     console.log(value);
-    setType(value);
+    setIndustry(value);
   };
   const handlePeriodChange = e => {
     const { name, value } = e.target;
     console.log(value);
-    setType(value);
+    setPeriod(value);
   };
   const handleReportTypeChange = e => {
     const { name, value } = e.target;
@@ -284,7 +284,7 @@ const CreatePost = ({ data }) => {
                       <>
                         Industry:
                         <DropDown
-                          value={type}
+                          value={industry}
                           autoFocus="true"
                           name="type"
                           onChange={handleIndustryChange}
@@ -308,7 +308,7 @@ const CreatePost = ({ data }) => {
                       <>                        
                         Period:
                         <DropDown
-                          value={type}
+                          value={period}
                           autoFocus="true"
                           name="type"
                           onChange={handlePeriodChange}
@@ -319,7 +319,7 @@ const CreatePost = ({ data }) => {
                         </DropDown>
                         Report Type:
                         <DropDown
-                          value={type}
+                          value={reportType}
                           autoFocus="true"
                           name="type"
                           onChange={handleReportTypeChange}

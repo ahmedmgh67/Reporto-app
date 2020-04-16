@@ -8,7 +8,7 @@ import theme from 'theme';
  * @param {string} color
  */
 export const BigUploadIcon = ({ width, color }) => {
-  const DEFAULT_WIDTH = '60';
+  const DEFAULT_WIDTH = '80';
   const DEFAULT_COLOR = theme.colors.text.secondary;
 
   return (

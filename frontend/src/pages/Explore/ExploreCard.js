@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Spacing } from 'components/Layout';
-import { LikeIcon, PostCommentIcon } from 'components/icons';
+import { LikeIcon, PostCommentIcon , BigUploadIcon} from 'components/icons';
 
 const Overlay = styled.div`
   position: absolute;
@@ -53,7 +53,7 @@ const Embed = styled.embed`
 /**
  * Card component, meant to be used in Explore page
  */
-const ExploreCard = ({ openPostPopup, image, countLikes, countComments }) => {
+const ExploreCard = ({ openPostPopup, image, countLikes, countComments, title }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
@@ -72,7 +72,13 @@ const ExploreCard = ({ openPostPopup, image, countLikes, countComments }) => {
   return (
     <Root>
       {/* <Photo style={imageLoaded ? { backgroundImage: `url(${image})` } : {}} /> */}
-<Embed src={image} />
+{/* <Embed src={image} /> */}
+<center>
+<p>
+{title}
+</p>
+<BigUploadIcon/>
+</center>
       <Overlay onClick={openPostPopup}>
         <LikeIcon color="white" />
 

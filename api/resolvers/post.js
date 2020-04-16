@@ -9,8 +9,11 @@ const Query = {
    * @param {int} limit how many posts to limit
    */
   getPosts: async (root, { authUserId, skip, limit }, { Post }) => {
+    // const query = {
+    //   $and: [{ type: "Report"}, { author: { $ne: authUserId } }],
+    // };
     const query = {
-      $and: [{ type: "Report"}, { author: { $ne: authUserId } }],
+      type: "Report"
     };
     const postsCount = await Post.find(query).countDocuments();
     const allPosts = await Post.find(query)
