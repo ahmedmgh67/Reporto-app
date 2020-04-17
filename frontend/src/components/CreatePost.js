@@ -49,6 +49,20 @@ const Textarea = styled.textarea`
   background-color: ${p => p.theme.colors.grey[100]};
   border-radius: ${p => p.theme.radius.md};
 `;
+const NameInput = styled.input`
+  width: 100%;
+  margin: 0 ${p => p.theme.spacing.xs};
+  padding-left: ${p => p.theme.spacing.sm};
+  padding-top: ${p => p.theme.spacing.xs};
+  border: 0;
+  outline: none;
+  resize: none;
+  transition: 0.1s ease-out;
+  height: ${p => (p.focus ? "80px" : "40px")};
+  font-size: ${p => p.theme.font.size.xs};
+  background-color: ${p => p.theme.colors.grey[100]};
+  border-radius: ${p => p.theme.radius.md};
+`;
 
 const ImagePreviewContainer = styled.div`
   width: 150px;
@@ -107,6 +121,7 @@ const CreatePost = ({ data }) => {
   const [period, setPeriod] = useState("Annual");
   const [industry, setIndustry] = useState("Financials");
   const [reportType, setReportType] = useState("Economic");
+  const [reportTitle, setReportTitle] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const [error, setError] = useState("");
   // console.log(data)
@@ -137,6 +152,11 @@ const CreatePost = ({ data }) => {
     const { name, value } = e.target;
     console.log(value);
     setReportType(value);
+  };
+  const handleReportTitleChange = e => {
+    const { name, value } = e.target;
+    console.log(value);
+    setReportTitle(value);
   };
 
   const handleOnFocus = () => setIsFocused(true);
@@ -246,7 +266,7 @@ const CreatePost = ({ data }) => {
                 )}
                 {isFocused && (
                   <Options>
-                    {user.type === "Analyst" && (
+                    {user.type === "Analyst" && type=== "Report" && (
                       <PostImageUpload
                         label="Upload Report"
                         handleChange={handlePostImageUpload}
@@ -279,7 +299,6 @@ const CreatePost = ({ data }) => {
                         </DropDown>
                       </>
                     )}
-                    ,
                     {type === "Report" && (
                       <>
                         Industry:
@@ -327,6 +346,16 @@ const CreatePost = ({ data }) => {
                           <option>Economic</option>
                           <option>Financial</option>
                         </DropDown>
+                      </>
+                    )}
+                  </Options>
+                )}
+                {isFocused && (
+                  <Options>
+                    {type === "Report" && (
+                      <>                        
+                        Report Title:
+                        <NameInput onChange={handleReportTitleChange}/>
                       </>
                     )}
                   </Options>
